@@ -1,0 +1,7 @@
+services:
+  projeto_barbearia:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - 8080:5432
