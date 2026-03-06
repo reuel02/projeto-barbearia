@@ -3,6 +3,7 @@ import "dotenv/config";
 import usersRouter from "./routes/users.routes.js";
 import authRouter from "./routes/auth.routes.js";
 import { authMiddleware } from "./middlewares/auth.middleware.js";
+import servicesRouter from "./routes/services.routes.js";
 
 const app = express();
 
@@ -13,6 +14,7 @@ app.use("/autenticar", authRouter);
 app.use(authMiddleware);
 
 app.use("/usuarios", usersRouter);
+app.use("/servicos", servicesRouter);
 
 app.listen(process.env.PORT || 3000, () => {
   console.log(`Servidor rodando na porta ${process.env.PORT || 3000}`);

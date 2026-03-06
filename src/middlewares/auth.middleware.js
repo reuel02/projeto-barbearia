@@ -1,4 +1,4 @@
-import jwt from "jsonwebtoken";
+import jwt, { decode } from "jsonwebtoken";
 import "dotenv/config";
 
 export const authMiddleware = async (req, res, next) => {
@@ -22,6 +22,7 @@ export const authMiddleware = async (req, res, next) => {
     const decoded = jwt.verify(token, process.env.JWT_SECRETKEY);
 
     req.usuarioId = decoded.id;
+    req.usuarioTipo = decoded.tipo
 
     next();
   } catch (error) {
