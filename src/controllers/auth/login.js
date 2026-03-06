@@ -26,8 +26,8 @@ export const login = async (req, res) => {
     }
 
     const user = {
+      id: emailFound.rows[0].id,
       email,
-      password,
     };
 
     const token = jwt.sign(user, process.env.JWT_SECRETKEY);
