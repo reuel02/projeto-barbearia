@@ -2,9 +2,9 @@ import bcrypt from "bcrypt";
 import connect from "../../config/connection.js";
 
 export const register = async (req, res) => {
-  const { nome, type, email, password } = req.body;
+  const { name, type, email, password } = req.body;
 
-  if (!nome || !type || !email || !password) {
+  if (!name || !type || !email || !password) {
     return res.status(400).json({ error: "Todos os campos são obrigatórios" });
   }
 
@@ -24,7 +24,7 @@ export const register = async (req, res) => {
 
     const result = await connect.query(
       "insert into usuarios (nome, tipo, email, senha_hash) values ($1, $2, $3, $4)",
-      [nome, type, email, hash],
+      [name, type, email, hash],
     );
 
     return res.status(201).json({ message: "Usuário criado com sucesso" });

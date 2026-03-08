@@ -6,7 +6,7 @@ const connect = new Pool({
   host: process.env.PGHOST || "localhost",
   database: process.env.PGDATABASE || "postgres",
   password: process.env.PGPASSWORD || "postgres",
-  port: process.env.PGPORT || 5432,
+  port: process.env.PGPORT || 8080,
 });
 
 connect.on("connect", () => {
